@@ -2,15 +2,15 @@
 	"patcher" : 	{
 		"fileversion" : 1,
 		"appversion" : 		{
-			"major" : 7,
-			"minor" : 3,
-			"revision" : 4,
+			"major" : 8,
+			"minor" : 1,
+			"revision" : 1,
 			"architecture" : "x64",
 			"modernui" : 1
 		}
 ,
-		"rect" : [ 34.0, 104.0, 405.0, 464.0 ],
-		"editing_bgcolor" : [ 0.9, 0.9, 0.9, 1.0 ],
+		"classnamespace" : "dsp.gen",
+		"rect" : [ 34.0, 104.0, 1083.0, 464.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -44,7 +44,6 @@
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"patching_rect" : [ 116.0, 420.0, 150.0, 20.0 ],
-					"style" : "",
 					"text" : "Leonardo Foletto, 2017"
 				}
 
@@ -57,7 +56,6 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 54.0, 387.0, 51.0, 22.0 ],
-					"style" : "",
 					"text" : "dcblock"
 				}
 
@@ -66,15 +64,14 @@
 				"box" : 				{
 					"code" : "History x1, x2, y1, y2;\r\nx = in1;\r\ncf = in2; \r\nq = in3; \r\n\r\ntwopisr = twopi/samplerate;\t\r\nbw = cf/q; \t\r\nr = exp(-bw*twopisr);\r\nc1 = 2*r*cos(cf * twopisr);\r\nc2 = -r*r;\r\n\r\ny = (1-r) * (x - r*x2) + c1*y1 + c2*y2;\r\n\r\ny2 = y1;\r\ny1 = y;\r\nx2 = x1;\r\nx1 = x;\r\nout1 = y;",
 					"fontface" : 0,
-					"fontname" : "Lato",
+					"fontname" : "<Monospaced>",
 					"fontsize" : 12.0,
 					"id" : "obj-5",
 					"maxclass" : "codebox",
 					"numinlets" : 3,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 54.0, 65.0, 297.0, 316.0 ],
-					"style" : ""
+					"patching_rect" : [ 54.0, 65.0, 297.0, 316.0 ]
 				}
 
 			}
@@ -87,9 +84,8 @@
 					"numinlets" : 0,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 147.0, 20.0, 164.0, 23.0 ],
-					"style" : "",
-					"text" : "in 2 @comment \"center freq\""
+					"patching_rect" : [ 101.0, 20.0, 222.0, 23.0 ],
+					"text" : "param cutoff 1000 @min 0 @max 20000"
 				}
 
 			}
@@ -102,9 +98,8 @@
 					"numinlets" : 0,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 332.0, 20.0, 179.0, 23.0 ],
-					"style" : "",
-					"text" : "in 3 @comment Q @default 512"
+					"patching_rect" : [ 332.0, 20.0, 186.0, 23.0 ],
+					"text" : "param Q 512 @min 0 @max 1000"
 				}
 
 			}
@@ -118,7 +113,6 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 54.0, 20.0, 30.0, 23.0 ],
-					"style" : "",
 					"text" : "in 1"
 				}
 
@@ -132,7 +126,6 @@
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"patching_rect" : [ 54.0, 412.0, 37.0, 23.0 ],
-					"style" : "",
 					"text" : "out 1"
 				}
 
@@ -173,7 +166,8 @@
 				}
 
 			}
- ]
+ ],
+		"editing_bgcolor" : [ 0.9, 0.9, 0.9, 1.0 ]
 	}
 
 }

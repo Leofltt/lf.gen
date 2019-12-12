@@ -2,15 +2,15 @@
 	"patcher" : 	{
 		"fileversion" : 1,
 		"appversion" : 		{
-			"major" : 7,
-			"minor" : 3,
-			"revision" : 4,
+			"major" : 8,
+			"minor" : 1,
+			"revision" : 1,
 			"architecture" : "x64",
 			"modernui" : 1
 		}
 ,
+		"classnamespace" : "dsp.gen",
 		"rect" : [ 57.0, 79.0, 344.0, 392.0 ],
-		"editing_bgcolor" : [ 0.9, 0.9, 0.9, 1.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -44,7 +44,6 @@
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"patching_rect" : [ 116.0, 328.0, 150.0, 20.0 ],
-					"style" : "",
 					"text" : "Leonardo Foletto, 2017"
 				}
 
@@ -57,7 +56,6 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 56.0, 291.0, 51.0, 22.0 ],
-					"style" : "",
 					"text" : "dcblock"
 				}
 
@@ -66,28 +64,27 @@
 				"box" : 				{
 					"code" : "History y1;\r\nx = in1;\r\ncf = in2;\r\ntpsr = twopi/samplerate;\r\nb = sin(cf * tpsr);\r\na = -1*(1 - b);\r\ny = b * x + a * y1;\r\ny1 = y;\r\nout1 = y;",
 					"fontface" : 0,
-					"fontname" : "Arial",
+					"fontname" : "<Monospaced>",
 					"fontsize" : 12.0,
 					"id" : "obj-2",
 					"maxclass" : "codebox",
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 56.0, 121.0, 216.0, 149.0 ],
-					"style" : ""
+					"patching_rect" : [ 56.0, 121.0, 216.0, 149.0 ]
 				}
 
 			}
 , 			{
 				"box" : 				{
 					"id" : "obj-3",
+					"linecount" : 2,
 					"maxclass" : "newobj",
 					"numinlets" : 0,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 143.0, 26.0, 148.0, 22.0 ],
-					"style" : "",
-					"text" : "in 2 @comment cutofffreq"
+					"patching_rect" : [ 143.0, 26.0, 191.0, 35.0 ],
+					"text" : "param cutoff 1500 @min 0 @max 20000"
 				}
 
 			}
@@ -99,7 +96,6 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 64.0, 26.0, 30.0, 22.0 ],
-					"style" : "",
 					"text" : "in 1"
 				}
 
@@ -111,7 +107,6 @@
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"patching_rect" : [ 56.0, 328.0, 37.0, 22.0 ],
-					"style" : "",
 					"text" : "out 1"
 				}
 
@@ -145,7 +140,8 @@
 				}
 
 			}
- ]
+ ],
+		"editing_bgcolor" : [ 0.9, 0.9, 0.9, 1.0 ]
 	}
 
 }

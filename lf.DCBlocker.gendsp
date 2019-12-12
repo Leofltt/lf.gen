@@ -2,15 +2,15 @@
 	"patcher" : 	{
 		"fileversion" : 1,
 		"appversion" : 		{
-			"major" : 7,
-			"minor" : 3,
-			"revision" : 4,
+			"major" : 8,
+			"minor" : 1,
+			"revision" : 1,
 			"architecture" : "x64",
 			"modernui" : 1
 		}
 ,
+		"classnamespace" : "dsp.gen",
 		"rect" : [ 133.0, 99.0, 416.0, 429.0 ],
-		"editing_bgcolor" : [ 0.9, 0.9, 0.9, 1.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -45,24 +45,22 @@
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"patching_rect" : [ 35.0, 385.0, 132.0, 33.0 ],
-					"style" : "",
 					"text" : "Leonardo Foletto, 2017"
 				}
 
 			}
 , 			{
 				"box" : 				{
-					"code" : "History x1, y1;\r\nx = in1;\r\nR = in2;\r\n\r\ny = x - x1 + R* y1;\r\ny1 = y;\r\nx1 = x;\r\nout1 = y;",
+					"code" : "History x1, y1;\r\nParam R(0.995, min=0.0, max=1.0);\r\nx = in1;\r\ny = x - x1 + R* y1;\r\ny1 = y;\r\nx1 = x;\r\nout1 = y;",
 					"fontface" : 0,
-					"fontname" : "Arial",
+					"fontname" : "<Monospaced>",
 					"fontsize" : 12.0,
 					"id" : "obj-6",
 					"maxclass" : "codebox",
-					"numinlets" : 2,
+					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 44.0, 93.0, 186.0, 153.0 ],
-					"style" : ""
+					"patching_rect" : [ 44.0, 93.0, 344.0, 222.0 ]
 				}
 
 			}
@@ -74,22 +72,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 44.0, 13.0, 129.0, 22.0 ],
-					"style" : "",
 					"text" : "in 1 @comment signal"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-2",
-					"linecount" : 2,
-					"maxclass" : "newobj",
-					"numinlets" : 0,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 211.0, 13.0, 195.0, 35.0 ],
-					"style" : "",
-					"text" : "in 2 @comment R @default 0.995 @min 0 @max 1"
 				}
 
 			}
@@ -100,7 +83,6 @@
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"patching_rect" : [ 44.0, 346.0, 37.0, 22.0 ],
-					"style" : "",
 					"text" : "out 1"
 				}
 
@@ -115,19 +97,13 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-6", 1 ],
-					"source" : [ "obj-2", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
 					"destination" : [ "obj-4", 0 ],
 					"source" : [ "obj-6", 0 ]
 				}
 
 			}
- ]
+ ],
+		"editing_bgcolor" : [ 0.9, 0.9, 0.9, 1.0 ]
 	}
 
 }
